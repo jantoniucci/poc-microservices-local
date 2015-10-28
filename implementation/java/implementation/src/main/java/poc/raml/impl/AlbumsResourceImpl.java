@@ -7,18 +7,32 @@ import poc.raml.jaxrs.jukebox.resource.AlbumsResource;
 
 @Component
 public class AlbumsResourceImpl implements AlbumsResource {
+
+
+
+
+
     @Override
     public GetAlbumsResponse getAlbums(String query, String orderBy, Order order, long offset, long limit) throws Exception {
+
         Albums albums = new Albums().withSize(1);
+
         albums.getAlbums().add(
                 new Album().withAlbumName("test")
         );
+
         return GetAlbumsResponse.withJsonOK(albums);
+
     }
+
+
+
+
 
     @Override
     public PostAlbumsResponse postAlbums(String accessToken, Album entity) throws Exception {
         return null;
+
     }
 
     @Override
