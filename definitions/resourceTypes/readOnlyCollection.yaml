@@ -1,0 +1,10 @@
+readOnlyCollection:
+  description: Collection of available <<resourcePathName>> in Jukebox.
+  get:
+    description: Get a list of <<resourcePathName>>.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              <<exampleCollection>>
