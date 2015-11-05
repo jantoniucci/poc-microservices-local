@@ -67,10 +67,14 @@
               <goals>
                 <goal>jar</goal>
               </goals>
+              <configuration>
+                <failOnError>false</failOnError>
+              </configuration>
+
             </execution>
           </executions>
         </plugin>
-      
+
       <plugin>
         <groupId>org.raml.plugins</groupId>
         <artifactId>raml-jaxrs-maven-plugin</artifactId>

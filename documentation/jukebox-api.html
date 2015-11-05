@@ -198,7 +198,31 @@
 }
 
 </code></pre></div><div class="tab-pane" id="songs_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "message": "The song has been properly entered" }
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_songs__songId_"><span class="parent">/songs</span>/{songId}</a> <span class="methods"><a href="#songs__songId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_songs__songId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Entity representing a song</p></div><div class="list-group"><div onclick="window.location.href = '#songs__songId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the song with songId = {songId}</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="songs__songId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/songs</span>/{songId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the song with songId = {songId}</p></div><ul class="nav nav-tabs"><li class="active"><a href="#songs__songId__get_request" data-toggle="tab">Request</a></li><li><a href="#songs__songId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="songs__songId__get_request"><h3>URI Parameters</h3><ul><li><strong>songId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="songs__songId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_songs__songId_"><span class="parent">/songs</span>/{songId}</a> <span class="methods"><a href="#songs__songId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_songs__songId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Entity representing a song</p></div><div class="list-group"><div onclick="window.location.href = '#songs__songId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the song with songId = {songId}</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="songs__songId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/songs</span>/{songId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the song with songId = {songId}</p></div><ul class="nav nav-tabs"><li class="active"><a href="#songs__songId__get_request" data-toggle="tab">Request</a></li><li><a href="#songs__songId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="songs__songId__get_request"><h3>URI Parameters</h3><ul><li><strong>songId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="songs__songId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required": true,
+  "properties": {
+    "songId": {
+      "type": "string",
+      "required": true,
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "songTitle": {
+      "type": "string",
+      "required": true
+    },
+    "albumId": {
+      "type": "string",
+      "required": true,
+      "minLength": 36,
+      "maxLength": 36
+    }
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
   "songId": "550e8400-e29b-41d4-a716-446655440000",
   "songTitle": "Get Lucky",
   "duration": "6:07",
@@ -287,7 +311,27 @@
 }
 
 </code></pre></div><div class="tab-pane" id="artists_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "message": "The artist has been properly entered" }
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_artists__artistId_"><span class="parent">/artists</span>/{artistId}</a> <span class="methods"><a href="#artists__artistId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_artists__artistId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Entity representing a artist</p></div><div class="list-group"><div onclick="window.location.href = '#artists__artistId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the artist with artistId = {artistId}</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="artists__artistId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/artists</span>/{artistId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the artist with artistId = {artistId}</p></div><ul class="nav nav-tabs"><li class="active"><a href="#artists__artistId__get_request" data-toggle="tab">Request</a></li><li><a href="#artists__artistId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="artists__artistId__get_request"><h3>URI Parameters</h3><ul><li><strong>artistId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="artists__artistId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_artists__artistId_"><span class="parent">/artists</span>/{artistId}</a> <span class="methods"><a href="#artists__artistId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_artists__artistId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Entity representing a artist</p></div><div class="list-group"><div onclick="window.location.href = '#artists__artistId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the artist with artistId = {artistId}</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="artists__artistId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/artists</span>/{artistId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the artist with artistId = {artistId}</p></div><ul class="nav nav-tabs"><li class="active"><a href="#artists__artistId__get_request" data-toggle="tab">Request</a></li><li><a href="#artists__artistId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="artists__artistId__get_request"><h3>URI Parameters</h3><ul><li><strong>artistId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="artists__artistId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties": {
+    "artistName": {
+      "type": "string",
+      "required":true
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "imageURL": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
   "artistId": "110e8300-e32b-41d4-a716-664400445500",
   "artistName": "Daft Punk",
   "description": "French electronic music duo consisting of musicians Guy-Manuel de Homem-Christo and Thomas Bangalter",
@@ -464,7 +508,7 @@
       "maxLength": 36
     }
   }
-} 
+}
 </code></pre><p><strong>Example</strong>:</p><pre><code>{
   "albumId": "183100e3-0e2b-4404-a716-66104d440550",
   "albumName": "Random Access Memories",
@@ -475,7 +519,43 @@
 }
 
 </code></pre></div><div class="tab-pane" id="albums_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "message": "The album has been properly entered" }
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_albums__albumId_"><span class="parent">/albums</span>/{albumId}</a> <span class="methods"><a href="#albums__albumId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_albums__albumId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Entity representing a album</p></div><div class="list-group"><div onclick="window.location.href = '#albums__albumId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the album with albumId = {albumId}</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="albums__albumId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/albums</span>/{albumId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the album with albumId = {albumId}</p></div><ul class="nav nav-tabs"><li class="active"><a href="#albums__albumId__get_request" data-toggle="tab">Request</a></li><li><a href="#albums__albumId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="albums__albumId__get_request"><h3>URI Parameters</h3><ul><li><strong>albumId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="albums__albumId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_albums__albumId_"><span class="parent">/albums</span>/{albumId}</a> <span class="methods"><a href="#albums__albumId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_albums__albumId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Entity representing a album</p></div><div class="list-group"><div onclick="window.location.href = '#albums__albumId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the album with albumId = {albumId}</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="albums__albumId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/albums</span>/{albumId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the album with albumId = {albumId}</p></div><ul class="nav nav-tabs"><li class="active"><a href="#albums__albumId__get_request" data-toggle="tab">Request</a></li><li><a href="#albums__albumId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="albums__albumId__get_request"><h3>URI Parameters</h3><ul><li><strong>albumId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="albums__albumId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties": {
+    "albumId": {
+      "type": "string",
+      "required":true,
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "albumName": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": false
+    },
+    "iamgeURL": {
+      "type": "string",
+      "required": false
+    },
+    "genreCode": {
+      "type": "string",
+      "required": true
+    },
+    "artistId": {
+      "type": "string",
+      "required":true,
+      "minLength": 36,
+      "maxLength": 36
+    }
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
   "albumId": "183100e3-0e2b-4404-a716-66104d440550",
   "albumName": "Random Access Memories",
   "year": "2013",
