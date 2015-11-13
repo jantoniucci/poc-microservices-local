@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-cd implementation/java/interface
+cd implementation/java/accounts-api/interface
 mvn clean install
 cd ../../..

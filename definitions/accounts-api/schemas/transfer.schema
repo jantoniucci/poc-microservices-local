@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required": true,
+  "properties": {
+    "accountIdFrom": {
+      "type": "string"
+    },
+    "accountIdTo": {
+      "type": "string"
+    },
+    "amount": {
+      "$ref" : "amount"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+        "type": "string",
+        "enum" : [
+            "sign-pending",
+            "execution-pending",
+            "cancelled",
+            "executed"
+        ]
+    },
+    "signers": {
+       "type": "array",
+       "items": { "$ref": "signer" }
+    }
+  }
+}

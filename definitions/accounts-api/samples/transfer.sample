@@ -1,0 +1,10 @@
+{
+    "accountId": "550e8400-e29b-41d4-a716-446655440000",
+    "IBAN": "ES9121000418450200051332",
+    "alias": "Alias c1",
+    "balance": {
+      "amount": "3200,23",
+      "currency": "EUR"
+    },
+    "description": "Description for account c1"
+}

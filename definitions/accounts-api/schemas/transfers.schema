@@ -1,0 +1,12 @@
+{
+   "$schema": "http://json-schema.org/draft-03/schema",
+   "type": "object",
+   "description": "A collection of transfers",
+   "properties": {
+     "size":  { "type": "integer", "required": true },
+     "transfers":  {
+        "type": "array",
+        "items": { "$ref": "transfer" }
+     }
+   }
+}

@@ -1,0 +1,12 @@
+{
+  "consul" : "consul:8500",
+  "services" : [
+    {
+      "name" : "demo-app",
+      "port" : 8080,
+      "health": "/usr/bin/curl --fail -s http://localhost:8080/manage/status",
+      "poll": 10,
+      "ttl": 25
+    }
+  ]
+}

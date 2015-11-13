@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required": true,
+  "properties": {
+    "accountId": {
+      "type": "string"
+    },
+    "IBAN": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "balance": {
+       "$ref" : "amount"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

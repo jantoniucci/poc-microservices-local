@@ -1,0 +1,104 @@
+#%RAML 0.8
+---
+title: Accounts & transfers API
+baseUri: http://accounts-operations.org
+version: v1
+
+schemas:
+ - signer: !include schemas/signer.schema
+ - amount: !include schemas/amount.schema
+ - account: !include schemas/account.schema
+ - accounts: !include schemas/accounts.schema
+ - transfer: !include schemas/transfer.schema
+ - transfers: !include schemas/transfers.schema
+ - errorMessage: !include schemas/errorMessage.schema
+ - responseMessage: !include schemas/responseMessage.schema
+
+resourceTypes: 
+  - !include resourceTypes/readOnlyCollection.yaml
+  - !include resourceTypes/readOnlyCollection-item.yaml
+  - !include resourceTypes/collection.yaml
+  - !include resourceTypes/collection-item.yaml
+
+traits:
+  - !include traits/searchable.yaml
+  - !include traits/orderable.yaml
+  - !include traits/pageable.yaml
+  - !include traits/secured.yaml
+
+
+/accounts:
+  type:
+    readOnlyCollection:
+      exampleCollection: !include samples/accounts.sample
+  get:
+    is: [
+      searchable: {
+        description: "with valid searchable fields: IBAN, balance, description",
+        example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", \"1000\", \"gte\"}]"
+      },
+      orderable: {
+        fieldsList: "alias, description, balance"
+      },
+      pageable,
+      secured
+    ]
+  /{accountId}:
+    type:
+      readOnlyCollection-item:
+        exampleItem: !include samples/account.sample
+    get:
+      is: [secured]
+    /transfers:
+      type:
+        collection:
+          exampleCollection: !include samples/transfers.sample
+      get:
+        is: [
+          searchable: {
+            description: "with valid searchable fields: status, accountIdFrom, accountIdTo, amount, description",
+            example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", \"1000\", \"gte\"}]"
+          },
+          orderable: {
+            fieldsList: "accountIdFrom, accountIdTo, description, amount, status"
+          },
+          pageable,
+          secured
+        ]
+      /{transferId}:
+        type:
+          collection-item:
+            exampleItem: !include samples/transfer.sample
+        get:
+          is: [secured]
+        put:
+          is: [secured]
+        delete:
+          is: [secured]
+
+/transfers:
+  type:
+    collection:
+      exampleCollection: !include samples/transfers.sample
+  get:
+    is: [
+      searchable: {
+        description: "with valid searchable fields: status, accountIdFrom, accountIdTo, amount, description",
+        example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", \"1000\", \"gte\"}]"
+      },
+      orderable: {
+        fieldsList: "accountIdFrom, accountIdTo, description, amount, status"
+      },
+      pageable,
+      secured
+    ]
+  /{transferId}:
+    type:
+      collection-item:
+        exampleItem: !include samples/transfer.sample
+    get:
+      is: [secured]
+    put:
+      is: [secured]
+    delete:
+      is: [secured]
