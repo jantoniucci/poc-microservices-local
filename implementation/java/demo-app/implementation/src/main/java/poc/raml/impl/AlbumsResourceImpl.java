@@ -40,7 +40,7 @@ public class AlbumsResourceImpl implements AlbumsResource {
         if (album != null) {
             return GetAlbumsByAlbumIdResponse.withJsonOK(album);
         } else {
-            return GetAlbumsByAlbumIdResponse.withJsonNotFound(new MessageResponse().withMessage("Album not found"));
+            return GetAlbumsByAlbumIdResponse.withJsonNotFound(new ErrorMessage().withMessage("Album not found"));
         }
 
     }
@@ -50,7 +50,7 @@ public class AlbumsResourceImpl implements AlbumsResource {
         List<Song> songs = albumsStore.findAlbumSongsById(albumId);
         if (CollectionUtils.isEmpty(songs)) {
             return GetAlbumsByAlbumIdSongsResponse
-                    .withJsonNotFound(new MessageResponse().withMessage("Songs not found"));
+                    .withJsonNotFound(new ResponseMessage().withMessage("Songs not found"));
         } else {
             return GetAlbumsByAlbumIdSongsResponse.withJsonOK(new Songs().withSongs(Arrays.<Song>asList(new Song(), new Song(), new Song(), new Song())));
         }

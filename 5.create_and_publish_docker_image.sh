@@ -1,4 +1,4 @@
-cd implementation/java/implementation
-mvn clean package docker:build 
-gcloud docker push eu.gcr.io/gke-demo-1111/impl
-cd ../../..
+#!/usr/bin/env bash
+cd implementation/java/accounts-api/implementation
+mvn clean package docker:build docker:tag
+cd ../../../..

@@ -3,3 +3,18 @@ secured:
     access_token:
       description: The token to get authorized
       type: string
+  responses:
+    401:
+      description: Unauthorized
+      body:
+        application/json:
+          schema: responseMessage
+          example: |
+            {"message": "Unauthorized" }
+    403:
+      description: Forbidden
+      body:
+        application/json:
+          schema: responseMessage
+          example: |
+            {"message": "Forbidden" }

@@ -1,0 +1,35 @@
+app:
+  image: poc.raml/accounts-api.impl:0.0.1-SNAPSHOT
+  expose:
+    - 8080
+  external_links:
+    - "consulcluster_consul_1:consul"
+  restart: "unless-stopped"
+  mem_limit: "256m"
+  command: >
+    /opt/containerbuddy/containerbuddy
+    -config "{
+      \"consul\" : \"consul:8500\",
+      \"services\" : [
+        {
+          \"name\" : \"accounts-api\",
+          \"port\" : 8080,
+          \"health\": \"/usr/bin/curl --fail -s http://localhost:8080/manage/health\",
+          \"poll\": 15,
+          \"ttl\": 35
+        }
+      ]
+    }"
+    java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+
+haproxy:
+  image: frascuchon/consul-haproxy:0.0.1
+  ports:
+    - "80:80"
+    - "1936:1936"
+  external_links:
+    - "consulcluster_consul_1:consul"
+  environment:
+    SERVICE_NAME: accounts-api
+  restart: "unless-stopped"
+  mem_limit: "256m"

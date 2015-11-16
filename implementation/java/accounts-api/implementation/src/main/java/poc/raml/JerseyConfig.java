@@ -1,9 +1,10 @@
 package poc.raml;
 
 import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import poc.raml.accounts.AccountsResourceImpl;
-import poc.raml.accounts.transfers.TransfersResourceImpl;
+import poc.raml.jaxrs.accounts.resource.AccountsResource;
+import poc.raml.jaxrs.accounts.resource.TransfersResource;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -11,10 +12,13 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("/api")
 public class JerseyConfig extends ResourceConfig {
 
-    public JerseyConfig() {
-        register(AccountsResourceImpl.class);
-        register(TransfersResourceImpl.class);
-
-    }
+	@Autowired
+	public JerseyConfig(
+					AccountsResource accountsResource,
+					TransfersResource transfersResource
+	) {
+		register(accountsResource);
+		register(transfersResource);
+	}
 
 }

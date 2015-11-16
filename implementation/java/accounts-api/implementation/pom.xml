@@ -22,7 +22,9 @@
     <module.name>${api-interface.name}</module.name>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <docker.image.prefix>${api-interface.name}</docker.image.prefix>
-    <java.version>1.7</java.version>
+
+    <java.version>1.8</java.version>
+    <lombok.version>1.16.6</lombok.version>
   </properties>
 
   <dependencies>
@@ -50,6 +52,12 @@
       <version>${api-interface.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -63,13 +71,15 @@
         <artifactId>docker-maven-plugin</artifactId>
         <version>0.3.5</version>
         <configuration>
-          <imageName>eu.gcr.io/${docker.image.prefix}/${project.artifactId}</imageName>
           <exposes>
             <expose>8080</expose>
           </exposes>
-          <dockerDirectory>src/main/docker</dockerDirectory>
-          <serverId>docker-hub</serverId>
-          <registryUrl>https://index.docker.io/v1/</registryUrl>
+          <imageName>${project.artifactId}</imageName>
+          <image>${project.artifactId}</image>
+          <newName>${project.groupId}/${project.artifactId}:${project.version}</newName>
+          <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
+          <!--<serverId>docker-hub</serverId>-->
+          <!--<registryUrl>https://index.docker.io/v1/</registryUrl>-->
           <resources>
             <resource>
               <targetPath>/</targetPath>

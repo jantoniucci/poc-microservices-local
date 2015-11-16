@@ -33,13 +33,11 @@ collection-item:
             schema: <<resourcePathName|!singularize>>
             example: |
               <<exampleItem>>
-      405:
-        body:
-          application/json:
-            schema: errorMessage
-            example: |
-              {"message" : "Cannot modify <<resourcePathName|!singularize>>"}
   delete:
+    description: |
+       Delete the <<resourcePathName|!singularize>>
+       with <<resourcePathName|!singularize>>Id =
+       {<<resourcePathName|!singularize>>Id}
     responses:
       200:
         body:
@@ -47,9 +45,3 @@ collection-item:
             schema: responseMessage
             example: |
               {"message" : "OK"}
-      405:
-        body:
-          application/json:
-            schema: errorMessage
-            example: |
-              {"message" : "Cannot modify <<resourcePathName|!singularize>>"}

@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ADD opt/containerbuddy /opt/containerbuddy/
-ADD impl-0.0.1-SNAPSHOT.jar app.jar
+ADD *.jar app.jar
 
 RUN bash -c 'touch /app.jar'
 

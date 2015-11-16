@@ -11,7 +11,9 @@ schemas:
  - albums: !include schemas/albums.schema
  - artist: !include schemas/artist.schema
  - artists: !include schemas/artists.schema
- - messageResponse: !include schemas/messageResponse.schema
+ - responseMessage: !include schemas/responseMessage.schema.json
+ - messageResponse: !include schemas/responseMessage.schema.json
+ - errorMessage: !include schemas/errorMessage.schema.json
 
 resourceTypes: 
   - !include resourceTypes/readOnlyCollection.yaml

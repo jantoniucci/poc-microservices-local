@@ -1,0 +1,17 @@
+FROM java:8
+
+# install curl
+RUN apt-get update && \
+    apt-get install -y \
+    curl && \
+    rm -rf /var/lib/apt/lists/*
+
+ADD opt/containerbuddy /opt/containerbuddy/
+ADD *.jar app.jar
+
+RUN bash -c 'touch /app.jar'
+
+EXPOSE 8080
+
+VOLUME /tmp
+

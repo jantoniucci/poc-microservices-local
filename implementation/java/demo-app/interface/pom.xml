@@ -80,7 +80,7 @@
         <artifactId>raml-jaxrs-maven-plugin</artifactId>
         <version>${project.version}</version>
         <configuration>
-          <sourceDirectory>${basedir}/../../../../definitions</sourceDirectory>
+          <sourceDirectory>${basedir}/../../../../definitions/demo-app</sourceDirectory>
           <basePackageName>poc.raml.jaxrs.jukebox</basePackageName>
           <jaxrsVersion>2.0</jaxrsVersion>
           <useJsr303Annotations>false</useJsr303Annotations>

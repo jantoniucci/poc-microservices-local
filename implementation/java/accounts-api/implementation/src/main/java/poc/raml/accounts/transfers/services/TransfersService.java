@@ -1,5 +1,8 @@
 package poc.raml.accounts.transfers.services;
 
+import poc.raml.accounts.transfers.dtos.DeleteTransferDTO;
+import poc.raml.accounts.transfers.dtos.GetAccountTransferDTO;
+import poc.raml.accounts.transfers.dtos.RegisterTransferChangeDTO;
 import poc.raml.jaxrs.accounts.model.Transfer;
 
 import java.util.List;
@@ -9,4 +12,10 @@ import java.util.List;
  */
 public interface TransfersService {
 	List<Transfer> getAccountsTransfers(String currentAccountId);
+
+	Transfer getAccountTransferId(GetAccountTransferDTO getAccountTransferDTO);
+
+	void registTransferChange(RegisterTransferChangeDTO transferDTO);
+
+	void deleteTransfer(DeleteTransferDTO deleteTransferDTO);
 }

@@ -1,0 +1,17 @@
+{
+  "accountIdFrom" : "550e8400-e29b-41d4-a716-446655440000",
+  "accountIdTo": "550e8400-e29b-41d4-a716-446655440111",
+  "amount" : {
+    "amount": 150.00,
+    "currency": "EUR"
+  },
+
+  "description" : "example transfer",
+  "status" : "sign-pending",
+  "signers": [
+    {
+      "signerId": "11111-00000",
+      "signType": "incumbent"
+    }
+  ]
+}

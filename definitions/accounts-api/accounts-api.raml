@@ -1,18 +1,18 @@
 #%RAML 0.8
 ---
 title: Accounts & transfers API
-baseUri: http://accounts-operations.org
+baseUri: http://accounts.demo/api
 version: v1
 
 schemas:
- - signer: !include schemas/signer.schema
- - amount: !include schemas/amount.schema
- - account: !include schemas/account.schema
- - accounts: !include schemas/accounts.schema
- - transfer: !include schemas/transfer.schema
- - transfers: !include schemas/transfers.schema
- - errorMessage: !include schemas/errorMessage.schema
- - responseMessage: !include schemas/responseMessage.schema
+ - signer: !include schemas/signer.schema.json
+ - amount: !include schemas/amount.schema.json
+ - account: !include schemas/account.schema.json
+ - accounts: !include schemas/accounts.schema.json
+ - transfer: !include schemas/transfer.schema.json
+ - transfers: !include schemas/transfers.schema.json
+ - errorMessage: !include schemas/errorMessage.schema.json
+ - responseMessage: !include schemas/responseMessage.schema.json
 
 resourceTypes: 
   - !include resourceTypes/readOnlyCollection.yaml
@@ -25,80 +25,102 @@ traits:
   - !include traits/orderable.yaml
   - !include traits/pageable.yaml
   - !include traits/secured.yaml
+  - !include traits/validable.yaml
 
 
 /accounts:
+  is: [
+    searchable: {
+      description: "with valid searchable fields: IBAN, balance, description",
+      example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", 1000.0, \"gte\"}]"
+    },
+    orderable: {
+      fieldsList: "alias, description, balance"
+    },
+    pageable,
+    secured
+  ]
   type:
     readOnlyCollection:
-      exampleCollection: !include samples/accounts.sample
+      exampleCollection: !include samples/accounts.json
   get:
-    is: [
-      searchable: {
-        description: "with valid searchable fields: IBAN, balance, description",
-        example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", \"1000\", \"gte\"}]"
-      },
-      orderable: {
-        fieldsList: "alias, description, balance"
-      },
-      pageable,
-      secured
-    ]
   /{accountId}:
+    is: [secured]
     type:
       readOnlyCollection-item:
-        exampleItem: !include samples/account.sample
+        exampleItem: !include samples/account.json
     get:
-      is: [secured]
     /transfers:
+      is: [
+        searchable: {
+          description: "with valid searchable fields: status, accountIdTo, amount, description",
+          example: "[{\"amount\", 100.0, \"gte\"}, {\"description\" : \"shoppings\"}]"
+        },
+        orderable: {
+          fieldsList: "accountIdTo, description, amount, status"
+        },
+        pageable,
+        secured
+      ]
       type:
         collection:
-          exampleCollection: !include samples/transfers.sample
+          exampleCollection: !include samples/transfers.json
       get:
-        is: [
-          searchable: {
-            description: "with valid searchable fields: status, accountIdFrom, accountIdTo, amount, description",
-            example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", \"1000\", \"gte\"}]"
-          },
-          orderable: {
-            fieldsList: "accountIdFrom, accountIdTo, description, amount, status"
-          },
-          pageable,
-          secured
-        ]
       /{transferId}:
+        is: [secured]
         type:
           collection-item:
-            exampleItem: !include samples/transfer.sample
+            exampleItem: !include samples/transfer.json
         get:
-          is: [secured]
         put:
-          is: [secured]
+         is: [
+           validable : {
+             "schema": !include schemas/transferValidations.schema.json,
+             "example": !include samples/transferValidations.sample.json
+           }
+         ]
         delete:
-          is: [secured]
+          is: [
+            validable: {
+              schema: !include schemas/errorMessage.schema.json,
+              example: "{\"message\" : \"Cannot delete transfer\"}"
+            }
+          ]
 
 /transfers:
+  is: [
+    searchable: {
+      description: "with valid searchable fields: status, accountIdFrom, accountIdTo, amount, description",
+      example: "[{\"amount\", 100.0, \"gte\"}, {\"description\" : \"shoppings\"}]"
+    },
+    orderable: {
+      fieldsList: "accountIdFrom, accountIdTo, description, amount, status"
+    },
+    pageable,
+    secured
+  ]
   type:
     collection:
-      exampleCollection: !include samples/transfers.sample
+      exampleCollection: !include samples/transfers.json
   get:
-    is: [
-      searchable: {
-        description: "with valid searchable fields: status, accountIdFrom, accountIdTo, amount, description",
-        example: "[{\"IBAN\", \"2038\", \"like\"},{\"balance\", \"1000\", \"gte\"}]"
-      },
-      orderable: {
-        fieldsList: "accountIdFrom, accountIdTo, description, amount, status"
-      },
-      pageable,
-      secured
-    ]
   /{transferId}:
+    is: [secured]
     type:
       collection-item:
-        exampleItem: !include samples/transfer.sample
+        exampleItem: !include samples/transfer.json
     get:
-      is: [secured]
     put:
-      is: [secured]
+      is: [
+        validable : {
+          "schema": !include schemas/transferValidations.schema.json,
+          "example": !include samples/transferValidations.sample.json
+      }]
     delete:
-      is: [secured]
+      is: [
+        validable: {
+          schema: !include schemas/errorMessage.schema.json,
+          example: "{\"message\" : \"Cannot delete transfer\"}"
+        }
+      ]
+
+

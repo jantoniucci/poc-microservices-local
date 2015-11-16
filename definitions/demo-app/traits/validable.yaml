@@ -1,0 +1,9 @@
+validable:
+  responses:
+    405:
+      body:
+        application/json:
+          schema: |
+            <<schema>>
+          example: |
+            <<example>>
