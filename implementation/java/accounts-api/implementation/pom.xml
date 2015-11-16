@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>poc.raml</groupId>
-  <artifactId>${module.name}.impl</artifactId>
+  <artifactId>accounts-api.impl</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -44,6 +44,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.ext</groupId>
+      <artifactId>jersey-bean-validation</artifactId>
     </dependency>
 
     <dependency>

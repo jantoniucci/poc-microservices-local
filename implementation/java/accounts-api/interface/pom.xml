@@ -85,7 +85,7 @@
           <sourceDirectory>${basedir}/../../../../definitions/${module.name}/</sourceDirectory>
           <basePackageName>poc.raml.jaxrs.accounts</basePackageName>
           <jaxrsVersion>2.0</jaxrsVersion>
-          <useJsr303Annotations>false</useJsr303Annotations>
+          <useJsr303Annotations>true</useJsr303Annotations>
           <jsonMapper>jackson2</jsonMapper>
           <removeOldOutput>true</removeOldOutput>
         </configuration>

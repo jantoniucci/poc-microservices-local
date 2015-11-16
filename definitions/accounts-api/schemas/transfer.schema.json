@@ -5,10 +5,17 @@
   "required": true,
   "properties": {
     "accountIdFrom": {
-      "type": "string"
+      "type": "string",
+      "description": "Account id from",
+      "required": true,
+      "minLength" : 20,
+      "maxLength" : 20
     },
     "accountIdTo": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "minLength" : 20,
+      "maxLength" : 20
     },
     "amount": {
       "$ref" : "amount"
@@ -17,6 +24,7 @@
       "type": "string"
     },
     "status": {
+        "required":  true,
         "type": "string",
         "enum" : [
             "sign-pending",

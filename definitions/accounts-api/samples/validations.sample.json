@@ -1,0 +1,15 @@
+{
+  "size": "2",
+  "validations": [
+    {
+      "fieldName": "accountIdFrom",
+      "message": "Value for accountIdFrom must be a number",
+      "errorType": "Type error"
+    },
+    {
+      "fieldName": "amount",
+      "message": "Value for amount must be positive",
+      "errorType": "Type error"
+    }
+  ]
+}

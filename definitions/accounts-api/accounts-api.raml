@@ -13,6 +13,7 @@ schemas:
  - transfers: !include schemas/transfers.schema.json
  - errorMessage: !include schemas/errorMessage.schema.json
  - responseMessage: !include schemas/responseMessage.schema.json
+ - fieldValidationError: !include schemas/fieldValidationError.schema.json
 
 resourceTypes: 
   - !include resourceTypes/readOnlyCollection.yaml
@@ -75,8 +76,8 @@ traits:
         put:
          is: [
            validable : {
-             "schema": !include schemas/transferValidations.schema.json,
-             "example": !include samples/transferValidations.sample.json
+             "schema": !include schemas/validations.schema.json,
+             "example": !include samples/validations.sample.json
            }
          ]
         delete:
@@ -112,8 +113,8 @@ traits:
     put:
       is: [
         validable : {
-          "schema": !include schemas/transferValidations.schema.json,
-          "example": !include samples/transferValidations.sample.json
+          "schema": !include schemas/validations.schema.json,
+          "example": !include samples/validations.sample.json
       }]
     delete:
       is: [

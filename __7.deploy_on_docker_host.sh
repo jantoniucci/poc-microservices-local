@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo - Creando el cluster
 gcloud container clusters create gke-demo-cluster1 --num-nodes 1 --machine-type g1-small
 

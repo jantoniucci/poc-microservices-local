@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "type": "object",
+  "description": "An error message response object",
+  "properties": {
+    "fieldName": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "string",
+      "required": true
+    },
+    "errorType": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

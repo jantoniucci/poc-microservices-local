@@ -6,7 +6,7 @@
      "size":  { "type": "integer", "required": true },
      "validations":  {
         "type": "array",
-        "items": { "$ref": "errorMessage" }
+        "items": { "$ref": "fieldValidationError" }
      }
    }
 }
