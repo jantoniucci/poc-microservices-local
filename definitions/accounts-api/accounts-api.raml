@@ -1,6 +1,6 @@
 #%RAML 0.8
 ---
-title: Accounts & transfers API
+title: Accounts & transfers
 baseUri: http://accounts.demo/api
 version: v1
 
@@ -27,7 +27,6 @@ traits:
   - !include traits/pageable.yaml
   - !include traits/secured.yaml
   - !include traits/validable.yaml
-
 
 /accounts:
   is: [

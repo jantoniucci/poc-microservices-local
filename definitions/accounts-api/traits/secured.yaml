@@ -3,7 +3,6 @@ secured:
     access_token:
       description: The token to get authorized
       type: string
-      required: true
   responses:
     401:
       description: Unauthorized

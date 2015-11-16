@@ -12,7 +12,7 @@
     "signers": [
       {
         "signerId": "11111-00000",
-        "signType": "titular"
+        "signType": "incumbent"
       }
     ]
   }

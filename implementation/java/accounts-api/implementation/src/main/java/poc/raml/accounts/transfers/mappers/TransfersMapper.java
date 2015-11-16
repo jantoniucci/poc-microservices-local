@@ -6,8 +6,6 @@ import poc.raml.accounts.transfers.dtos.SignerDto;
 import poc.raml.jaxrs.accounts.model.Signer;
 import poc.raml.jaxrs.accounts.model.Transfer;
 
-import javax.validation.Valid;
-import javax.ws.rs.PathParam;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,15 +14,17 @@ import java.util.stream.Collectors;
  */
 public abstract class TransfersMapper {
 
-	public static RegisterTransferChangeDTO mapToTransferDto(@PathParam("transferId") String transferId,Transfer
+	public static RegisterTransferChangeDTO mapToTransferDto(String transferId, Transfer
 					transfer) {
 		RegisterTransferChangeDTO registerTransferChangeDTO = new RegisterTransferChangeDTO();
 
 		registerTransferChangeDTO.setAccountIdFrom(transferId);
 		registerTransferChangeDTO.setAccountIdTo(transfer.getAccountIdTo());
-		registerTransferChangeDTO.setAmount(new BalanceDto(transfer.getAmount().getAmount(), transfer.getAmount().getCurrencyCode()));
+		if (transfer.getAmount() != null) {
+			registerTransferChangeDTO.setAmount(new BalanceDto(transfer.getAmount().getAmount(), transfer.getAmount().getCurrencyCode()));
+		}
 		registerTransferChangeDTO.setDescription(transfer.getDescription());
-		registerTransferChangeDTO.setStatus(transfer.getStatus().toString());
+		registerTransferChangeDTO.setStatus(transfer.getStatus() == null ? "" : transfer.getStatus().toString());
 		registerTransferChangeDTO.setSigners(mapSigners(transfer.getSigners()));
 
 		return registerTransferChangeDTO;

@@ -1,5 +1,5 @@
 app:
-  image: poc.raml/accounts-api.impl:0.0.1-SNAPSHOT
+  image: poc.raml/accounts-api.impl
   expose:
     - 8080
   external_links:
