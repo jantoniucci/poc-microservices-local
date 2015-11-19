@@ -13,8 +13,6 @@ import poc.raml.accounts.transfers.services.TransfersService;
 import poc.raml.jaxrs.accounts.model.*;
 import poc.raml.jaxrs.accounts.resource.AccountsResource;
 
-import javax.validation.Valid;
-import javax.validation.Validator;
 import java.util.List;
 
 /**

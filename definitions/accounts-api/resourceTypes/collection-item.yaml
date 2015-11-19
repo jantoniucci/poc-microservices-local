@@ -18,9 +18,24 @@ collection-item:
             schema: errorMessage
             example: |
               {"message": "<<resourcePathName|!singularize>> not found" }
+  post:
+    description: |
+      Create a new <<resourcePathName|!singularize>>
+    body:
+      application/json:
+        schema: <<resourcePathName|!singularize>>
+        example: |
+          <<exampleItem>>
+    responses:
+      201:
+        body:
+          application/json:
+            schema: <<resourcePathName|!singularize>>
+            example: |
+              <<exampleItem>>
   put:
     description: |
-      Upsert a <<resourcePathName|!singularize>>
+      Update a <<resourcePathName|!singularize>>
     body:
       application/json:
         schema: <<resourcePathName|!singularize>>

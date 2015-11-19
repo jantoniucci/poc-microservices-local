@@ -23,13 +23,13 @@ app:
     java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
 
 haproxy:
-  image: frascuchon/consul-haproxy:0.0.1
+  image: frascuchon/consul-nginx
   ports:
     - "80:80"
-    - "1936:1936"
+    - "443:443"
   external_links:
     - "consulcluster_consul_1:consul"
   environment:
     SERVICE_NAME: accounts-api
   restart: "unless-stopped"
-  mem_limit: "256m"
+  mem_limit: "128m"
